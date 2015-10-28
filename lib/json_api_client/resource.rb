@@ -243,7 +243,7 @@ module JsonApiClient
       end
 
       def _header_store
-        Thread.current["json_api_client-#{resource_name}"] ||= {}
+        Thread.current["json_api_client-headers"] ||= {}
       end
 
       def _build_connection(rebuild = false)
