@@ -6,11 +6,6 @@ module JsonApiClient
         @params = params_for_uri(result_set.uri)
         @result_set = result_set
         @links = data['links'] || {}
-
-        Rails.logger.debug "PAGINATE!!!! #{links}"
-        Rails.logger.debug "PAGINATE!!!! #{links["last"]}"
-        Rails.logger.debug "PAGINATE!!!! #{params_for_uri(links["last"])}"
-        Rails.logger.debug "PAGINATE!!!! #{total_pages}"
       end
 
       def next
