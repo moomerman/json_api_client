@@ -13,7 +13,7 @@ module JsonApiClient
       end
 
       def prev
-        result_set.links.fetch_link("next")
+        result_set.links.fetch_link("prev")
       end
 
       def first
@@ -46,13 +46,13 @@ module JsonApiClient
       end
 
       def per_page
-        params.fetch("per_page") do
+        params.fetch("page[size]") do
           result_set.length
         end.to_i
       end
 
       def current_page
-        params.fetch("page[number]", 1).to_i
+        (params.fetch("page[number]", 1) || 1).to_i
       end
 
       def out_of_bounds?
