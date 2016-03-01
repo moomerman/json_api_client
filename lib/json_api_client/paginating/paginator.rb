@@ -46,9 +46,7 @@ module JsonApiClient
       end
 
       def per_page
-        params.fetch("page[size]") do
-          result_set.length
-        end.to_i
+        (params.fetch("page[size]", result_set.length) || 25).to_i
       end
 
       def current_page
