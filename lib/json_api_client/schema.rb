@@ -7,7 +7,7 @@ module JsonApiClient
 
         case type.to_sym
         when :int, :integer
-          value.to_i
+          value.blank? ? nil : value.to_i
         when :string
           value.to_s
         when :float
